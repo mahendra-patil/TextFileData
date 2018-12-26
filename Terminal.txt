@@ -1,0 +1,7 @@
+1) remove directory command    rm -rf <directory name>
+2) to reduce path on terminal use   PS1='\u:\W\$ '   and enter
+3) touch <file name>
+4)
+
+
+

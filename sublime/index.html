@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div id="loaddata"><h2>This is going to change</h2></div>
+    <button class="btn btn-success" id="btnclick">click here</button>
+    
+  </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('#btnclick').click(function(){
+            $('#loaddata').load('/home/user/TextFile/sublime/load.html');
+          })
+      });
+    </script>
+
+
+  
+</body>
+</html> 

@@ -1,0 +1,73 @@
+$ rails new DeviseDemo -T
+*add bello two gem into gemfile of ur project
+gem 'devise'
+gem 'bootstrap-sass'
+
+$ bundle install
+
+*go to application.scss and add 
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+
+*go to application.html.erb and add this layout 
+
+<div class="container">
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <%= value %>
+          </div>
+      <% end %>
+    </div>
+
+    <%= yield :top_content %>
+    <div class="container">
+      <h1><%= yield :header %></h1>
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+*add to application_helper.rb
+
+add bellow def in module----
+
+def header(text)
+  content_for(:header) { text.to_s }
+end
+
+*rails g controller pages
+
+*add code to view/pages/index.html.erb
+
+<% content_for :top_content do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Welcome!</h1>
+      <p>Register to get started.</p>
+      <p>
+        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+*go and add config/routes.rb
+      root to: 'pages#index'
+*config/environments/development.rb
+
+	  config.action_mailer.default_url_options = {host: '127.0.0.1',port: 3000 }
+
+*$ rails generate devise:install
+*$ rails generate devise User
+
+* go to model/user.rb and add this content all of available but tracable not available
+
+devise :database_authenticatable, :registerable,
+       :recoverable, :rememberable, :trackable, :validatable
+*also add
+devise :database_authenticatable, :registerable,
+        :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
+
+

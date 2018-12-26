@@ -1,0 +1,5 @@
+DOM- document obj model
+
+it is used for to make website more interactive
+it is interface that allows in prog lan to manupulate content,structure and style of website  
+parsing the style and structure of the HTML and CSS, the browser creates a representation of the document known as the Document Object Model. This model allows JavaScript to access the text content and elements of the website document as objects

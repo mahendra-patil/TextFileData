@@ -1,0 +1,73 @@
+1) number to word
+  add gemfile gem 'numbers_and_words'
+  and add this changes in create
+    @user = User.new(user_params)
+    p = user_params[:sal].to_i
+    @user.sal = I18n.with_locale(:en) { p.to_words }
+
+2)
+Exceptions that happen as a part of saving/creating a model
+
+I use the ActiveRecord callbacks after_validation, after_validation_on_create, and before_save (depending on the circumstance), to obtain any extra data and verify that everything is ready to be saved. Then, if any problems, I store the exception in errors[:base] using add_to_base. That way the view will display the error msg in the same way it displays any other validation errors.
+
+Remember that if your before_save method returns false, the save will fail.
+
+Exceptions for other model methods
+
+All the usual methods are available:
+
+Raise a specific exception that the controller will catch. The exception can include an error number that the view translates to an error msg. Or the model can export an error_num to error_msg hash
+Return an error code as a return parameter of the method. Eg if you want to also use the Flash to give a positive msg when things work, you can return a msg_code. Then have negative msg codes for errors and positive codes for different types of success.
+Establish an @error (or whatever) instance variable to be checked by the caller.
+
+
+3) download file in rails 4
+
+in routes:
+
+get "home/download_pdf"
+in controller (already have pdf):
+
+def download_pdf
+  send_file(
+    "#{Rails.root}/public/your_file.pdf",
+    filename: "your_custom_file_name.pdf",
+    type: "application/pdf"
+  )
+end
+in controller (need to generate pdf):
+
+require "prawn"
+class ClientsController < ApplicationController
+
+  def download_pdf
+    client = Client.find(params[:id])
+    send_data generate_pdf(client),
+              filename: "#{client.name}.pdf",
+              type: "application/pdf"
+  end
+
+  private
+
+  def generate_pdf(client)
+    Prawn::Document.new do
+      text client.name, align: :center
+      text "Address: #{client.address}"
+      text "Email: #{client.email}"
+    end.render
+  end
+end
+in view:
+
+<%= link_to 'Download PDF', home_download_pdf_url %>
+
+
+
+4) for envirnment in rails 
+
+http://teotti.com/use-of-rails-environments/
+
+5) button for bootstrap modal in application.html.erb in sidebar 
+	
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> New Aricle</button>
+        <%= render template:'articles/new.html.erb'%>

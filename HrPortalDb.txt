@@ -1,0 +1,44 @@
+
+*Model Names
+	Requisition
+	Candidate
+	User(hr)
+
+*Model Table Requisitons
+
+	position_title
+	number_of_position
+	level_of_Exp
+	department
+	project_team
+	hiring_mgr
+	job_desc
+	status_of_requisition
+	start_date
+	end_date
+	
+	
+*Model Table candidates
+	candidate.id
+	name
+	email
+	contact_number
+	technology
+	skills
+	current_orgnisation_name
+	total_exp
+	relevent_exp
+	current_CTC
+	expected_CTC
+	notice_period
+	hr_notes
+
+*Model Table Posts
+        candidate_id
+	post_name
+	interview_date
+	
+*Model Table users
+	name
+	email
+	password

@@ -1,0 +1,85 @@
+1.show db-> \list, \1
+2.to show current db =>\c
+3.list all tables in the current database=>\dt
+4.CREATE DATABASE <dbname>;
+5.change db => \c <db name>;
+6)this id for to emove db from rails app drop db
+SELECT * FROM pg_stat_activity WHERE datname = 'Employee_development';
+SELECT pg_terminate_backend (pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'Employee_development';
+drop database employee_development;
+
+7) suppose we have to added clumn in table
+
+rails g migration add_<column name>_to_<table name> <column name>:<data type>
+
+
+8)supppose we have to remove column from table then
+
+rails g migration remove_<column name>_from_<table name> <column name>:<data type>
+
+9) suppose i want to add foreign keq on another model so do
+
+$ bin/rails generate migration AddUserRefToProducts user:references
+
+
+for ref https://api.rubyonrails.org/v5.2.2/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_reference
+
+10) to joint two table 
+
+$ bin/rails g migration CreateJoinTableCustomerProduct customer product
+
+11)  how to do polymorphic association in rails
+
+create model rails g model TeachingAssistant name:string ta_duty_id:integer ta_duty_type:string
+
+create rails g model course name:string 
+
+create rails g model lab name:string 
+
+go and write in model.rb     has_many :teaching_assistants, as: :ta_duty     in both .rb file and rake db:migrate
+
+  ta = TeachingAssistant.create(name: 'ta_name')
+ c = Course.create(name: 'course_name')
+  ta.update_attribute(:ta_duty, c)
+ => true
+ Course.last.teaching_assistants.last.name
+=> "ta_name"
+
+12) rails to rollback or clean ur db so do this
+	rails db:rollback---------------one by one rolback this command 
+	rails db:rollback:redo STEP=3
+	rails db:reset  this is equivalent to rails db:drop db:setup-------------this command drop db and setup also seed.rb file also run
+	rails db:setup--------create db load schema initiate with seed data
+13) to change datatype from table in rails 
+	rails g migration change_data_type_for_<name of coumn or attribute>
+and go to migration file and change that     change_column :<table name plurl> :<attribute name> :<data type>
+
+14)  what to write in up and down method to change db
+
+	create model-goto ur migration file and edit this change methods 
+
+
+		class ChangeProductsPrice < ActiveRecord::Migration[5.0]
+		  def up
+		    change_table :products do |t|
+		      t.change :price, :string
+		    end
+		  end
+		 
+		  def down
+		    change_table :products do |t|
+		      t.change :price, :integer
+		    end
+		  end
+		end
+and use this command to update ut migration 
+
+	rails db:migrate:up/down VERSION=----------
+
+
+
+15)  to check status of migration in rails
+	rails db:migrate:status
+16) to migration on version number
+	rake db:migrate VERSION=----------
+

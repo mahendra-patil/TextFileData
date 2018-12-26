@@ -1,0 +1,124 @@
+<html>
+  <body>
+   <script>
+     //object literial
+    //  emp={name:"mahendra",age:24,mobile:8805394915}
+//      document.write(emp.name+" "+emp.age+" "+emp.mobile+"<br>");
+
+
+// // instanceof Object
+//      var e = new Object();
+//      e.name="mahendra"
+//      e.age=24
+//      e.sal=256355
+//      document.write(e.name+" "+e.age+" "+e.sal+"<br>");
+
+// // using object constructor
+//     function create(name,age,sal)
+//     {
+//       this.name = name;
+//       this.age = age;
+//       this.sal = sal;
+//     }
+//     e = new create("mahendra",24,88056356);
+//     document.write(e.name+" "+e.age+" "+e.sal);
+
+
+    // function employee(name,age,sal){
+    //   this.name=name;
+    //   this.age=age;
+    //   this.sal=sal;
+    //   this.changesal = changesal;
+    //   function changesal(othersal)
+    //   {
+    //     this.sal = othersal;
+
+    //   }
+    // }
+
+    // e = new employee("mahendra",25,8806395);
+    // document.write(e.name+" "+e.age+" "+e.sal+"<br>");
+    // e.changesal(45000);
+    // document.write(e.name+" "+e.age+" "+e.sal);
+
+// function makeFunc() {
+//   var name = 'Mozilla';
+//   function displayName() {
+//     alert(name);
+//   }
+//   return displayName;
+//   document.write(name); 
+// }
+
+// var myFunc = makeFunc();
+// myFunc();
+
+      // function print(){
+      //   document.write("hello");
+      // }
+
+      // function myFun()
+      // {
+      //   var x = document.getElementById("name").value
+      //   // document.write(x); 
+      //   document.getElementById("demo").innerHTML="you select"+x;
+
+      // }
+
+
+       // var z = 0;           
+        //function changeText(){
+        //document.getElementById("demo").innerHTML= z+=1;
+         //}
+         //function prevText(){
+           //document.getElementById("demo").style.color="black";
+            //}
+
+            // document.getElementById("demo").onkeydown = function(){keydownFun()};
+            function keydownFun(){
+              // alert("enter correct");  
+              document.getElementById("demo").style.backgroundColor = "red";
+
+            }
+
+            // document.getElementById("demo").onkeydown = function(){keydownFun()};
+            function keyupFun(){
+              // alert("enter correct");  
+              document.getElementById("demo").style.backgroundColor = "blue";
+
+            }
+
+            function onloadFun  (){
+              // alert("this is onload ");
+              document.getElementById("demo").innerHTML="loaded iframe is success";
+            }
+
+
+
+
+    </script>
+       <!-- <button onchange="print()" id="demo">click</button>
+      <p id="demo">change</p> -->
+      <!-- <p id="demo">please choose option</p>
+      <select id="name" onclick="myFun()">
+        <option value="mahendra">mahendra</option>
+        <option value="swapnil">swapnil</option>
+        <option value="shahsank">shahsank</option>
+        <option value="shilpa">shilpa</option>
+      </select> -->
+
+     <!-- <p>this is mouseover event</p>
+     <h1 id="demo" onmouseover="changeText()" onmouseout="prevText()">Hello change me</h1>
+ -->
+
+      <!-- <h1>onkeydown</h1>
+      Enter name:<input type="text" id="demo"  onkeyup="keyupFun()" onkeydown="keydownFun()">
+ -->
+
+ <iframe onload="onloadFun()" id="demo" src="/default.asp">hello this is onload</iframe>
+
+  </body>
+</html>
+
+
+

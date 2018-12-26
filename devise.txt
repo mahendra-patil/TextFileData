@@ -1,0 +1,49 @@
+Devise is a flexible authentication solution for Rails based on Warden.
+
+Warden makes it easy to move authentication up into Rack middleware. This means authentication can be accessed outside of a Rails controller such as in routes or in a mountable engine.
+
+  A helper method is a method written for the view, it’s designed to be reusable anywhere within the website, and it cleans up the view code by separating out some logic
+
+
+
+
+https://guides.rubyonrails.org/kindle/getting_started.html
+
+
+
+def new
+    @role = Role.new
+  end
+
+  def create
+    @role = Role.new(roles_params)
+    if @role.save
+      redirect_to @role
+    else
+      render new
+    end
+  end
+
+  def index
+    @role = Role.all
+
+  end
+
+  def show
+    @role = Role.find(params[:id])
+  end
+
+  def edit
+    @role = Role.find(params[:id])
+  end
+
+  def destroy
+  @role = Role.find(params[:id])
+  @role.destroy
+  redirect_to roles_path
+end
+
+  private
+  def roles_params
+    params.require(:role).permit(:role)
+  end

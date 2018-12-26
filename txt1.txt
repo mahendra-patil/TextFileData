@@ -1,0 +1,114 @@
+1.counter_cache => true saving only the count of rows in the table scores. Is there any similar method for storing the sum of all values from the table scores? Or this task I have to implement by myself?
+
+2.Resque is a Redis-backed Ruby library for creating background jobs, placing them on multiple queues, and processing them later. http://resque.github.io/
+Resque (pronounced like "rescue") is a Redis-backed library for creating background jobs, placing those jobs on multiple queues, and processing them later.
+
+Background jobs can be any Ruby class or module that responds to perform. Your existing classes can easily be converted to background jobs or you can create new classes specifically to do work. Or, you can do both.
+
+Resque is heavily inspired by DelayedJob (which rocks) and comprises three parts:
+* A Ruby library for creating, querying, and processing jobs
+* A Rake task for starting a worker which processes jobs
+* A Sinatra app for monitoring queues, jobs, and workers.
+Resque workers can be distributed between multiple machines, support priorities, are resilient to memory bloat / "leaks," are optimized for REE (but work on MRI and JRuby), tell you what they're doing, and expect failure.
+
+Resque queues are persistent; support constant time, atomic push and pop (thanks to Redis); provide visibility into their contents; and store jobs as simple JSON packages.
+
+The Resque frontend tells you what workers are doing, what workers are not doing, what queues you're using, what's in those queues, provides general usage stats, and helps you track failures.
+
+Resque now supports Ruby 2.0.0 and above. Any future updates will not be guaranteed to work without defects on any Rubies older than 2.0.0. We will also only be supporting Redis 3.0 and above going forward.
+
+3.sidekiq- it is backend queue  Need speed? Scale your app with Ruby's fastest job system, up to 20x faster than the competition!backend que
+
+
+
+date 26/09/2018 Browser API
+,
+1.window object=> window object in JS represent the current window open in your browser. It contains information related to your current browser window. For example, the URL for the current page can be found in window.location object. All global JavaScript objects, functions, and variables automatically become members of the window object.
+
+The most important/frequently used object under the window object is the document object. It contains the rendered HTML of the current page. Scripts use javascript/jquery to parse this document object and manipulate them to change the look and feel of the page dynamically. When running your script in a page, all globally declared functions and variables are in the window object’s scope.
+
+In short, window object is the context of the current tab/window of your browser. Your page exists because the window object does.
+
+Some code which shows that window object indeed does control the current tab/window:
+
+location.assign(“http://www.google.com”) or window.location.href = “www.google.com” will take you to Google.
+
+s = window.open() opens a new tab.
+
+s.close() closes it.
+		available any 
+supported on any browser
+window,this also window obj,
+localstorage cookies
+localstoarage data stoarg data 
+xsrf,
+sanitization-> (exept)is process of examinine an html docu. and produce new html doc.  it use for protect cross scripting 
+
+cross side scripting->Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user
+
+Cross-site scripting (XSS) is a type of computer security vulnerability typically found in web applications that enables malicious attackers to inject client-side script into web pages viewed by other users. An exploited cross-site scripting vulnerability can be used by attackers to bypass access ...
+
+window obje pass  so access is faster
+IIFE - immedetly invoked function expression
+(function () {
+alert(window)
+})();
+fist obj check in function if it is not then it return parrent to find
+#window.location to give url
+on console it give full url
+location.host    ->localhost:3000
+localhost.search
+
+* convert string into obj
+s=s.substring(1)
+part=s.substring(1).spit('&')
+parts=s.split('&')
+parts.reduce((a,b)
+
+* reduce functon pass accumulator
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+learn from 
+           https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+# is special is called anker js interprete this # so scroll fast
+	it insert into url   by js because it doesnt done by server
+the data load by ajax without loading data
+2.Location=>
+	is object
+locaion.reload();
+locaion.replace();  -replace web history data 
+
+locaion.href ="http//www.google.com"
+
+
+3.FormData=>
+	a= formData{}     data is going t server in key value pair automatically  used when incode complex data and obj 
+used in ajax request
+* cross serving- if i request to another server 
+non browser environment pe cookie is not available i want to provide on that 
+getdata
+ cors apply when background se task karte hai 
+api kar sakata he 
+* ajax-> it is web development technique 	
+	on client side create asyn web application
+also do not need to load page ie to change content dynamicly do not need to reload the entire page
+		
+learn cros mdn
+
+
+4.XMLHTTPRequest & Fetch API=>
+5.CORS Explanation=> cross origin resource sharing is word wide web consortium specification that allows cross domain communication from the browser
+6.promise-> asyn hone ke bad responce ayegal
+
+
+
+
+
+60731219816-pul42qlgn3edj7c7db5o4j6scrrbcl7h.apps.googleusercontent.com
+7weY0BtOnbYYqg12vdFc2ugY
+
+facebook
+appid---> 279964692854039
+
+app secrete id->]d8f7781e53de3516654485d23f32a4f7
+
